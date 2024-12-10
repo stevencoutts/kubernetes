@@ -7,6 +7,17 @@ spec:
   selector:
     matchLabels:
       app: nginx
+	containers:
+  	- name: hostpath-container
+    	  image: nginx
+    	  volumeMounts:
+    	  - name: hostpath-volume
+      	    mountPath: /etc/nginx/html
+  	volumes:
+  	- name: hostpath-volume
+    	  hostPath:
+      	    path: /Users/stevencoutts/public_html
+      	    type: Directory
   template:
     metadata:
       labels:
