@@ -7,17 +7,6 @@ spec:
   selector:
     matchLabels:
       app: nginx
-	containers:
-  	- name: hostpath-container
-    	  image: nginx
-    	  volumeMounts:
-    	  - name: hostpath-volume
-      	    mountPath: /etc/nginx/html
-  	volumes:
-  	- name: hostpath-volume
-    	  hostPath:
-      	    path: /Users/stevencoutts/public_html
-      	    type: Directory
   template:
     metadata:
       labels:
@@ -28,3 +17,13 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
+        - name: hostpath-container
+          image: nginx
+          volumeMounts:
+          - name: hostpath-volume
+            mountPath: /etc/nginx/html
+        volumes:
+        - name: hostpath-volume
+          hostPath:
+            path: /Users/stevencoutts/public_html
+            type: Directory
