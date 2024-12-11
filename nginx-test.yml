@@ -9,8 +9,8 @@ spec:
       path: /usr/share/nginx/html
       type: Directory
   containers:
-  - name: nginx
-    image: nginx
+  - name: nginx-demo
+    image: nginx:latest
     volumeMounts:
     - name: shared-data
       mountPath: /usr/share/nginx/html
