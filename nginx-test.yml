@@ -6,7 +6,7 @@ spec:
   volumes:
   - name: shared-data
     hostPath:
-      path: /users/stevencoutts/public-html
+      path: /usr/share/nginx/html
       type: Directory
   containers:
   - name: nginx
